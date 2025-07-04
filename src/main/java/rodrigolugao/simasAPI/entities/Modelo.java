@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import rodrigolugao.simasAPI.enums.TipoVeiculo;
 
 @Entity
 @AllArgsConstructor
@@ -17,12 +18,6 @@ import lombok.*;
         }
 )
 public class Modelo {
-    public enum Tipo{
-        Carro, Moto
-    }
-    public enum Cambio {
-        Automatico, Semiautomatico, Manual
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +25,12 @@ public class Modelo {
     @NotNull
     @NotBlank
     private String nome;
-    private String marca;
+    private String fabricante;
     @NotNull
     @Enumerated(EnumType.STRING)
-    private Tipo tipo;
+    private TipoVeiculo tipo;
     private int ano;
+    private String cambio;
     private String motor;
     private int qtdEstoque;
     private String combustivel;

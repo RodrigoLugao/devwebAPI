@@ -1,12 +1,11 @@
 package rodrigolugao.simasAPI.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @AllArgsConstructor
@@ -14,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Carro {
+public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,4 +24,9 @@ public class Carro {
     private String descricao;
     @NotBlank
     private String codigo;
+    private BigDecimal preco;
+    private LocalDate dataCadastro = LocalDate.now();
+    private String imagem;
+    private boolean vendido = false;
+    private String cor;
 }
